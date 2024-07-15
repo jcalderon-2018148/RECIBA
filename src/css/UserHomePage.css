@@ -1,0 +1,51 @@
+.boton-carousel {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    color: rgb(77, 79, 228);
+    width: 100%;
+    height: 200px;
+    border: none;
+    cursor: pointer;
+    transition: .6s ease all;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.img-carousel:hover img {
+    opacity: 0.5;
+    transition: .6s ease all;
+}
+
+.img-carousel img {
+    transition: .6s ease all;
+}
+
+
+
+.contenedor-btn-carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.botones-carousel {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1vh;
+}
+
+
+
+
+.transitionY{
+    transition: .3s;
+}
+.transitionY:hover{
+    transform: translateY(-15px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}

@@ -1,0 +1,61 @@
+@import 'https://fonts.googleapis.com/css?family=VT323';
+
+.h1Error, .pError, .linkError {
+    color: #e0e2f4;
+}
+
+.bodyError, .pError {
+    font: normal 20px/1.25rem "VT323", monospace;
+}
+
+.h1Error {
+    font: normal 2.75rem/1.05em "VT323", monospace;
+}
+
+.bodyError {
+    background: #0414a7;
+    background-size: cover;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+.containerError {
+    width: 90%;
+    margin: auto;
+    max-width: 640px;
+    text-align: center;
+}
+
+.bsod {
+    padding-top: 10%;
+}
+
+.bsod .neg {
+    text-align: center;
+    color: #0414a7;
+}
+
+.bsod .neg .bg {
+    background: #aaaaaa;
+    padding: 0 15px 2px 13px;
+}
+
+.bsod .title {
+    margin-bottom: 50px;
+}
+
+.bsod .nav {
+    margin-top: 35px;
+    text-align: center;
+}
+
+.bsod .nav .link {
+    text-decoration: none;
+    padding: 0 9px 2px 8px;
+}
+
+.bsod .nav .link:hover,
+.bsod .nav .link:focus {
+    background: #aaaaaa;
+    color: #0414a7;
+}

@@ -1,0 +1,56 @@
+@font-face {
+    font-family: Mono;
+    src: url('../../src/fonts/monof55.ttf');
+}
+
+@font-face {
+    font-family: Coolvetica;
+    src: url('../../src/fonts/LEMONMILK-Regular.otf');
+}
+
+@font-face {
+    font-family: Barcode;
+    src: url('../../src/fonts/barcoding.ttf');
+}
+
+.bgGreen {
+    background-color: #086c3c;
+}
+
+.fontReciba {
+    font-family: Mono;
+    font-size: 1.5em;
+    letter-spacing: 4px;
+}
+
+.fontTextReciba {
+    font-family: Mono;
+    font-size: 1.5em;
+    letter-spacing: 2px;
+}
+
+.fontBarcode {
+    font-family: Barcode;
+    font-size: 1.1rem;
+}
+
+.green-text{
+    color: #086c3c;
+}
+
+.optionSidebar {
+    font-family: Coolvetica;
+    text-decoration: none;
+    outline: none;
+    transition: 0.5s;
+    color: black;
+}
+
+.optionSidebar:hover {
+    color: purple;
+}
+
+.optionSidebar:active {
+    color: black;
+    transition: 0s;
+}

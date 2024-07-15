@@ -1,0 +1,31 @@
+{
+  "name": "reciba-react",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "axios": "^1.4.0",
+    "bootstrap": "^5.3.0",
+    "chart.js": "^4.3.2",
+    "lord-icon-element": "^4.1.1",
+    "lottie-web": "^5.12.2",
+    "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.1",
+    "react-select": "^5.7.3",
+    "sweetalert2": "^11.7.12"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@vitejs/plugin-react": "^4.0.1",
+    "vite": "^4.4.0"
+  }
+}
