@@ -12,7 +12,7 @@ export const CardPartner = ({ id, name, phone, email, address, photo, admin, but
             <div className="h-100 transitionY shadow-lg rounded-4">
 
                 <img
-                    src={`http://localhost:3033/partner/getImage/${photo}`}
+                    src={`https://reciba-api.vercel.app//partner/getImage/${photo}`}
                     crossOrigin='anonymous'
                     className="img-fluid rounded-5 shadow rounded-top-4"
                     style={{

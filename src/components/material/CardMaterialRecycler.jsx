@@ -13,7 +13,7 @@ export const CartMaterialRecycler = ({ _id, type, price, unit, photo, recycle, b
                 <div className="row g-0 align-items-center justify-content-center">
                     <div className="col-sm-5">
                         <img
-                            src={`http://localhost:3033/material/getImage/${photo}`}
+                            src={`https://reciba-api.vercel.app//material/getImage/${photo}`}
                             crossOrigin='anonymous'
                             className="card-img-top rounded-4 img-fluid"
                             style={{

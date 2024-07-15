@@ -32,7 +32,7 @@ export const ModalDelAccount = ({ user }) => {
                 showDenyButton: true,
             }).then(async (result) => {
                 if (result.isConfirmed) {
-                    const { data } = await axios.delete(`http://localhost:3033/user/delete`, { headers: headers }).catch((err) => {
+                    const { data } = await axios.delete(`https://reciba-api.vercel.app//user/delete`, { headers: headers }).catch((err) => {
                         Swal.fire(err.response.data.message, '', 'error')
                     })
 

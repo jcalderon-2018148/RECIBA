@@ -16,7 +16,7 @@ export const MasterRecyclerView = () => {
     
     const getRecyclers = async () => {
         try {
-            const { data } = await axios(`http://localhost:3033/recycler/get`, { headers: headers })
+            const { data } = await axios(`https://reciba-api.vercel.app//recycler/get`, { headers: headers })
                 
             setRecycler(data.recyclers)
         } catch (err) {
@@ -34,7 +34,7 @@ export const MasterRecyclerView = () => {
                 showDenyButton: true,
             }).then(async (result) => {
                 if (result.isConfirmed) {
-                    const { data } = await axios.delete(`http://localhost:3033/recycler/delete/${id}`, { headers: headers })
+                    const { data } = await axios.delete(`https://reciba-api.vercel.app//recycler/delete/${id}`, { headers: headers })
                         .catch((err) => {
                             Swal.fire(err.response.data.message, '', 'error')
                         })

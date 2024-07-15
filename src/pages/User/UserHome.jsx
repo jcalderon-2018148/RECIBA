@@ -9,7 +9,7 @@ import Swal from 'sweetalert2'
 import { CardReward } from '../../components/rewards/CardReward'
 import { CardPartner } from '../../components/partner/CardPartner'
 
-const HOST = Object.freeze({ url: 'http://localhost:3033' })
+const HOST = Object.freeze({ url: 'https://reciba-api.vercel.app/' })
 
 export const UserHome = () => {
     const [recyclers, setRecyclers] = useState()

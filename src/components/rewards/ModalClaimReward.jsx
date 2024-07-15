@@ -3,7 +3,7 @@ import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 
-const HOST = Object.freeze({ url: 'http://localhost:3033' })
+const HOST = Object.freeze({ url: 'https://reciba-api.vercel.app/' })
 
 export const ModalClaimReward = ({ name, desc, partner, range, cantPoints, photo, id }) => {
     const navigate = useNavigate()
@@ -56,7 +56,7 @@ export const ModalClaimReward = ({ name, desc, partner, range, cantPoints, photo
                         </div>
                         <div className="modal-body">
                             <img
-                                src={`http://localhost:3033/reward/getImage/${photo}`}
+                                src={`https://reciba-api.vercel.app//reward/getImage/${photo}`}
                                 crossOrigin='anonymous'
                                 className="img-fluid rounded-5 shadow"
                                 style={{

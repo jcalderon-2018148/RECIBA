@@ -14,7 +14,7 @@ export const RowTableBodyBill = ({ number, materialid, amountWeight, subtotal })
     // Buscar cada material para mostrarlo en la tabla.
     const getMaterial = async () => {
         try {
-            const { data } = await axios(`http://localhost:3033/material/getOne/${materialid}`, { headers: headers })
+            const { data } = await axios(`https://reciba-api.vercel.app//material/getOne/${materialid}`, { headers: headers })
 
             setMaterialData(data.material)
 

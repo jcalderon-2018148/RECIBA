@@ -39,7 +39,7 @@ export const UpdateMaterial = () => {
 
     const getMaterial = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:3033/material/getOne/${id}`, { headers: headers })
+            const { data } = await axios.get(`https://reciba-api.vercel.app//material/getOne/${id}`, { headers: headers })
 
             setMaterial({
                 type: data.material.type,
@@ -69,11 +69,11 @@ export const UpdateMaterial = () => {
                 }
             }
             console.log(newMaterial);
-            const { data } = await axios.put(`http://localhost:3033/material/set/${id}`, newMaterial, { headers: headers })
+            const { data } = await axios.put(`https://reciba-api.vercel.app//material/set/${id}`, newMaterial, { headers: headers })
 
             if (selectedImage) {
                 await axios.put(
-                    `http://localhost:3033/material/uploadImage/${id}`,
+                    `https://reciba-api.vercel.app//material/uploadImage/${id}`,
                     newPhoto,
                     { headers: { 'Content-Type': 'multipart/form-data', 'Authorization': localStorage.getItem('token') } }
                 )
@@ -181,7 +181,7 @@ export const UpdateMaterial = () => {
                                     <div className="col-sm-5">
 
                                         <img
-                                            src={selectedImage ? (selectedImage) : (`http://localhost:3033/material/getImage/${oldPhoto}`)}
+                                            src={selectedImage ? (selectedImage) : (`https://reciba-api.vercel.app//material/getImage/${oldPhoto}`)}
                                             crossOrigin="anonymous"
                                             className="card-img-top rounded-4 img-fluid img-thumbnail"
                                             style={{

@@ -27,7 +27,7 @@ export const Stats = () => {
 
     const getBills = async () => {
         try {
-            const { data } = await axios(`http://localhost:3033/bill/getOwn`, { headers: headers })
+            const { data } = await axios(`https://reciba-api.vercel.app//bill/getOwn`, { headers: headers })
 
             if (data) {
                 //Obtener la fecha actual

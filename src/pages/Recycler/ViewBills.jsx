@@ -22,9 +22,9 @@ export const ViewBills = () => {
 
             //Datos del usuario logueado (TRABAJADOR DE LA RECICLADORA)
             const userData = JSON.parse(localStorage.getItem('user'))
-            const recycler = await axios(`http://localhost:3033/recycler/getByUser/${userData.id}`, { headers: headers })
+            const recycler = await axios(`https://reciba-api.vercel.app//recycler/getByUser/${userData.id}`, { headers: headers })
 
-            const { data } = await axios(`http://localhost:3033/bill/getByRecycler/${recycler.data.recycler._id}`, { headers: headers })
+            const { data } = await axios(`https://reciba-api.vercel.app//bill/getByRecycler/${recycler.data.recycler._id}`, { headers: headers })
             setBills(data.data);
 
         } catch (err) {

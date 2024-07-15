@@ -33,7 +33,7 @@ export const UpdateUserPage = () => {
 
     const getUser = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:3033/user/get/${id}`, { headers: headers })
+            const { data } = await axios.get(`https://reciba-api.vercel.app//user/get/${id}`, { headers: headers })
             if (data.data) {
                 setUser(data.data[0])
                 setSelectRole(data.data[0].role)
@@ -52,7 +52,7 @@ export const UpdateUserPage = () => {
 
     const getRanges = async () =>{
         try {
-            const { data } = await axios.get(`http://localhost:3033/range/get`, {headers: headers})
+            const { data } = await axios.get(`https://reciba-api.vercel.app//range/get`, {headers: headers})
             setRange([])
             for(let i=0; i< data.range?.length;i++){
                 if(data.range[i].name != 'ADMIN')
@@ -76,10 +76,10 @@ export const UpdateUserPage = () => {
                 range: selectRange
             }
         
-            const { data } = await axios.put(`http://localhost:3033/user/update/${id}`, form, { headers: headers })
+            const { data } = await axios.put(`https://reciba-api.vercel.app//user/update/${id}`, form, { headers: headers })
 
             if (data.user) {
-                if (photo) await axios.put(`http://localhost:3033/user/uploadImg/${id}`, photo, {
+                if (photo) await axios.put(`https://reciba-api.vercel.app//user/uploadImg/${id}`, photo, {
                     headers: { 'Content-type': 'multipart/form-data', 'Authorization': localStorage.getItem('token') }
                 })
                 Swal.fire({

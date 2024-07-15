@@ -16,15 +16,15 @@ export const ModalUsers = ({ id }) => {
 
     const getUser = async () => {
         try {
-            const { data } = await axios(`http://localhost:3033/user/get/${id}`, { headers: headers })
+            const { data } = await axios(`https://reciba-api.vercel.app//user/get/${id}`, { headers: headers })
 
             if (data.data[0].photo) {
-                let img = await axios(`http://localhost:3033/user/getImg/${data.data[0].photo}`)
+                let img = await axios(`https://reciba-api.vercel.app//user/getImg/${data.data[0].photo}`)
                 data.data[0].photo = img.request.responseURL
             }
 
             if (data.data[0].range) {
-                let range = await axios(`http://localhost:3033/range/get/${data.data[0].range}`)
+                let range = await axios(`https://reciba-api.vercel.app//range/get/${data.data[0].range}`)
                 data.data[0].range = range.data.range.name
             }
 
@@ -45,7 +45,7 @@ export const ModalUsers = ({ id }) => {
                 showDenyButton: true,
             }).then(async (result) => {
                 if (result.isConfirmed) {
-                    const { data } = await axios.delete(`http://localhost:3033/user/delete/${id}`, { headers: headers }).catch((err) => {
+                    const { data } = await axios.delete(`https://reciba-api.vercel.app//user/delete/${id}`, { headers: headers }).catch((err) => {
                         Swal.fire(err.response.data.message, '', 'error')
                     })
                     getUsers()

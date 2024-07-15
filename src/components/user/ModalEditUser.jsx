@@ -25,7 +25,7 @@ export const ModalEditUser = ({ user }) => {
 
     const updateUser = async () => {
         try {
-            const { data } = await axios.put(`http://localhost:3033/user/update`, form, { headers: headers })
+            const { data } = await axios.put(`https://reciba-api.vercel.app//user/update`, form, { headers: headers })
 
             if (data.user) {
                 Swal.fire('Updated successfully', '', 'success').then(() => location.reload())

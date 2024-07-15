@@ -17,13 +17,13 @@ export const ViewMaterials = () => {
     const getMaterials = async () => {
         try {
 
-            const userData = await axios(`http://localhost:3033/user/getByUsername/${localUser.username}`, { headers: headers })
-            const recyclerData = await axios(`http://localhost:3033/recycler/getByUser/${userData.data.data[0].id}`, { headers: headers })
-            const { data } = await axios(`http://localhost:3033/material/getRecMaterials/${recyclerData.data.recycler._id}`, { headers: headers })
+            const userData = await axios(`https://reciba-api.vercel.app//user/getByUsername/${localUser.username}`, { headers: headers })
+            const recyclerData = await axios(`https://reciba-api.vercel.app//recycler/getByUser/${userData.data.data[0].id}`, { headers: headers })
+            const { data } = await axios(`https://reciba-api.vercel.app//material/getRecMaterials/${recyclerData.data.recycler._id}`, { headers: headers })
 
             /* for(let i = 0; i < data.materials?.length; i++){
                 if(data.materials[i].photo) {
-                    let img = await axios(`http://localhost:3033/material/getImage/${data.materials[i].photo}`, {headers: headers})
+                    let img = await axios(`https://reciba-api.vercel.app//material/getImage/${data.materials[i].photo}`, {headers: headers})
                     data.materials[i].photo = img.request.responseURL
                 }
                 continue
@@ -46,7 +46,7 @@ export const ViewMaterials = () => {
                 showDenyButton: true,
             }).then(async (result) => {
                 if (result.isConfirmed) {
-                    const { data } = await axios.delete(`http://localhost:3033/material/delete/${id}`, { headers: headers }).catch((err) => {
+                    const { data } = await axios.delete(`https://reciba-api.vercel.app//material/delete/${id}`, { headers: headers }).catch((err) => {
                         Swal.fire(err.response.data.message, '', 'error')
                     })
                     console.log(data)

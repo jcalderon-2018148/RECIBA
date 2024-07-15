@@ -32,7 +32,7 @@ export const ViewDetails = () => {
 
     const getBill = async () => {
         try {
-            const { data } = await axios(`http://localhost:3033/bill/get/${id}`, { headers: headers })
+            const { data } = await axios(`https://reciba-api.vercel.app//bill/get/${id}`, { headers: headers })
             setBill(data.data)
         } catch (err) {
             Swal.fire(err.response.data.message, '', 'error');

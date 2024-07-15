@@ -50,7 +50,7 @@ export const MasterRecyclerAdd = () => {
 
     const getUsers = async () => {
         try {
-            const { data } = await axios.get('http://localhost:3033/user/get', { headers: headers });
+            const { data } = await axios.get('https://reciba-api.vercel.app//user/get', { headers: headers });
             if (data) {
                 setUser([])
                 for (let i = 0; i < data.data?.length; i++) {
@@ -69,7 +69,7 @@ export const MasterRecyclerAdd = () => {
 
     const add = async (e) => {
         try {
-            const { data } = await axios.post('http://localhost:3033/recycler/add', form, { headers: headers })
+            const { data } = await axios.post('https://reciba-api.vercel.app//recycler/add', form, { headers: headers })
             if (data.recycler) {
                 if (!photo) {
                     Swal.fire({
@@ -81,7 +81,7 @@ export const MasterRecyclerAdd = () => {
                     })
                     navigate('/master/recyclerview')
                 }
-                if (photo) await axios.put(`http://localhost:3033/recycler/uploadImage/${data.recycler._id}`, photo, {
+                if (photo) await axios.put(`https://reciba-api.vercel.app//recycler/uploadImage/${data.recycler._id}`, photo, {
                     headers: { 'Content-Type': 'multipart/form-data', 'Authorization': localStorage.getItem('token') }
                 })
 

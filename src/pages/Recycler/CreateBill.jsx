@@ -44,7 +44,7 @@ export const CreateBill = () => {
     // Obtener todos los usuarios para mostrarlos en el select
     const getUsers = async () => {
         try {
-            const { data } = await axios('http://localhost:3033/user/getClients', { headers: headers });
+            const { data } = await axios('https://reciba-api.vercel.app//user/getClients', { headers: headers });
 
             const newList = data.data.map(user => ({
                 value: user.id,
@@ -62,9 +62,9 @@ export const CreateBill = () => {
     const getMaterials = async () => {
         try {
 
-            const userData = await axios(`http://localhost:3033/user/getByUsername/${localUser.username}`, { headers: headers })
-            const recyclerData = await axios(`http://localhost:3033/recycler/getByUser/${userData.data.data[0].id}`, { headers: headers })
-            const { data } = await axios(`http://localhost:3033/material/getRecMaterials/${recyclerData.data.recycler._id}`, { headers: headers })
+            const userData = await axios(`https://reciba-api.vercel.app//user/getByUsername/${localUser.username}`, { headers: headers })
+            const recyclerData = await axios(`https://reciba-api.vercel.app//recycler/getByUser/${userData.data.data[0].id}`, { headers: headers })
+            const { data } = await axios(`https://reciba-api.vercel.app//material/getRecMaterials/${recyclerData.data.recycler._id}`, { headers: headers })
 
             const newList = data.materials.map(material => ({
                 value: material._id,
@@ -90,7 +90,7 @@ export const CreateBill = () => {
                 return Swal.fire({title: 'You need to put a valid number', icon: 'error', timer: 1000, showConfirmButton: false});
             }
 
-            const { data } = await axios(`http://localhost:3033/material/getOne/${form?.material}`, { headers: headers })
+            const { data } = await axios(`https://reciba-api.vercel.app//material/getOne/${form?.material}`, { headers: headers })
             const { quantity, amount } = data.material.price
 
             const newAmountWeight = Math.abs(form.amountWeight)
@@ -132,7 +132,7 @@ export const CreateBill = () => {
                 return Swal.fire({title: 'You need to put a valid number', icon: 'error', timer: 1000, showConfirmButton: false});
             }
 
-            const { data } = await axios(`http://localhost:3033/material/getOne/${form?.material}`, { headers: headers });
+            const { data } = await axios(`https://reciba-api.vercel.app//material/getOne/${form?.material}`, { headers: headers });
             const { quantity, amount } = data.material.price;
 
             const existingMaterial = listCart.find(item => item.material === form.material);
@@ -168,10 +168,10 @@ export const CreateBill = () => {
             const userData = JSON.parse(localStorage.getItem('user'))
 
             // Información del usuario al que se creará la factura
-            const dataU = await axios(`http://localhost:3033/user/get/${form.user}`, { headers: headers });
+            const dataU = await axios(`https://reciba-api.vercel.app//user/get/${form.user}`, { headers: headers });
 
             // Informacion de la recicladora que está haciendo la factura
-            const dataR = await axios(`http://localhost:3033/recycler/getByUser/${userData.id}`, { headers: headers });
+            const dataR = await axios(`https://reciba-api.vercel.app//recycler/getByUser/${userData.id}`, { headers: headers });
 
             // Datos que se pondrán en la factura
             const newBill = {
@@ -189,7 +189,7 @@ export const CreateBill = () => {
                 if (!(newBill.total <= 0)) {
 
                     //Se obtienen las facturas por usuario en orden de la mas reciente a las mas antigua.
-                    const bByUser = await axios.get(`http://localhost:3033/bill/getByUser/${form.user}`, { headers: headers })
+                    const bByUser = await axios.get(`https://reciba-api.vercel.app//bill/getByUser/${form.user}`, { headers: headers })
 
                     if (!(bByUser.data.data.length === 0)) {
 
@@ -212,7 +212,7 @@ export const CreateBill = () => {
                             }
 
                             const bill = await axios.put(
-                                `http://localhost:3033/bill/addStreak/${form.user}`,
+                                `https://reciba-api.vercel.app//bill/addStreak/${form.user}`,
                                 deleteStreak,
                                 { headers: headers }
                             )
@@ -230,7 +230,7 @@ export const CreateBill = () => {
                                 }
 
                                 const bill = await axios.put(
-                                    `http://localhost:3033/bill/addStreak/${form.user}`,
+                                    `https://reciba-api.vercel.app//bill/addStreak/${form.user}`,
                                     plusStreak,
                                     { headers: headers }
                                 )
@@ -242,7 +242,7 @@ export const CreateBill = () => {
                     }
 
                     // Se crea la factura.
-                    const createdbill = await axios.post(`http://localhost:3033/bill/create`, newBill, { headers: headers })
+                    const createdbill = await axios.post(`https://reciba-api.vercel.app//bill/create`, newBill, { headers: headers })
 
                     /* 
                         Si ninguna se cumple, es primera vez que agrega material sin racha 
@@ -250,7 +250,7 @@ export const CreateBill = () => {
                     */
 
                     // Información del usuario al que se creará la factura
-                    const dataU2 = await axios(`http://localhost:3033/user/get/${form.user}`, { headers: headers });
+                    const dataU2 = await axios(`https://reciba-api.vercel.app//user/get/${form.user}`, { headers: headers });
 
                     const porcentStreak = dataU2.data.data[0].streakMaterial / 100
 
@@ -269,14 +269,14 @@ export const CreateBill = () => {
 
                     // Agregar los puntos y el bonus a la factura
                     await axios.put(
-                        `http://localhost:3033/bill/bonusPoints/${createdbill?.data.bill._id}`,
+                        `https://reciba-api.vercel.app//bill/bonusPoints/${createdbill?.data.bill._id}`,
                         addBonusPts,
                         {headers: headers}
                     )
 
                     // Agregar los puntos y la experiencia al usuario
                     await axios.put(
-                        `http://localhost:3033/bill/expPts/${form.user}`,
+                        `https://reciba-api.vercel.app//bill/expPts/${form.user}`,
                         addExpPts,
                         { headers: headers }
                     )
@@ -304,7 +304,7 @@ export const CreateBill = () => {
                 // Cuando la factura es de otro tipo de pago que no sea ECOINS.
                 if (!(newBill.total <= 0)) {
 
-                    const createdbill = await axios.post(`http://localhost:3033/bill/create`, newBill, { headers: headers })
+                    const createdbill = await axios.post(`https://reciba-api.vercel.app//bill/create`, newBill, { headers: headers })
                     Swal.fire({
                         icon: 'success',
                         title: 'Bill Created successfully',

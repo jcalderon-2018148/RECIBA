@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Swal from 'sweetalert2'
 import photoError from '../../assets/defaultRange.png'
 
-const HOST = Object.freeze({ url: 'http://localhost:3033' })
+const HOST = Object.freeze({ url: 'https://reciba-api.vercel.app/' })
 
 export const ModalAddRange = () => {
     const [form, setForm] = useState({

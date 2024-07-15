@@ -27,11 +27,11 @@ export const UpdatePartner = () => {
 
   const getPartner = async () => {
     try {
-      const { data } = await axios.get(`http://localhost:3033/partner/get/${id}`, { headers: headers })
+      const { data } = await axios.get(`https://reciba-api.vercel.app//partner/get/${id}`, { headers: headers })
       let dU = data
       if (dU.partner) {
         setPartner(dU.partner)
-        const { data } = await axios.get(`http://localhost:3033/user/get/${dU.partner.admin}`, { headers: headers });
+        const { data } = await axios.get(`https://reciba-api.vercel.app//user/get/${dU.partner.admin}`, { headers: headers });
         setUser(`${data.data[0].name} ${data.data[0].surname}`)
       }
 
@@ -50,7 +50,7 @@ export const UpdatePartner = () => {
         email: document.getElementById('email').value
       }
 
-      const { data } = await axios.put(`http://localhost:3033/partner/update/${id}`, form, { headers: headers })
+      const { data } = await axios.put(`https://reciba-api.vercel.app//partner/update/${id}`, form, { headers: headers })
 
       if (data.partner) {
         if (!photo) {
@@ -63,7 +63,7 @@ export const UpdatePartner = () => {
           })
           navigate('/master/partnerView')
       }
-      if (photo) await axios.put(`http://localhost:3033/partner/uploadImage/${id}`, photo, {
+      if (photo) await axios.put(`https://reciba-api.vercel.app//partner/uploadImage/${id}`, photo, {
           headers: { 'Content-Type': 'multipart/form-data', 'Authorization': localStorage.getItem('token') }
       })
         Swal.fire({

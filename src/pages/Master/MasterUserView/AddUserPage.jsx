@@ -43,7 +43,7 @@ export const AddUserPage = () => {
 
     const getRanges = async () =>{
         try {
-            const { data } = await axios.get(`http://localhost:3033/range/get`, {headers: headers})
+            const { data } = await axios.get(`https://reciba-api.vercel.app//range/get`, {headers: headers})
             setRange([])
             for(let i=0; i< data.range?.length;i++){
                 if(data.range[i].name != 'ADMIN')
@@ -57,11 +57,11 @@ export const AddUserPage = () => {
 
     const add = async (e) => {
         try {
-            const { data } = await axios.post('http://localhost:3033/user/save', form, { headers: headers })
+            const { data } = await axios.post('https://reciba-api.vercel.app//user/save', form, { headers: headers })
             
 
             if (data.user) {
-                if (photo) await axios.put(`http://localhost:3033/user/uploadImg/${data.user._id}`, photo, {
+                if (photo) await axios.put(`https://reciba-api.vercel.app//user/uploadImg/${data.user._id}`, photo, {
                     headers: { 'Content-Type': 'multipart/form-data', 'Authorization': localStorage.getItem('token') }
                 })
                 Swal.fire({

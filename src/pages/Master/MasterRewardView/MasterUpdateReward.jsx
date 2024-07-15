@@ -43,7 +43,7 @@ export const MasterUpdateReward = () => {
 
     const getReward = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:3033/reward/getOne/${id}`, { headers: headers })
+            const { data } = await axios.get(`https://reciba-api.vercel.app//reward/getOne/${id}`, { headers: headers })
             setReward(data.reward)
             setPartnerId(data.reward.partner._id)
         } catch (err) {
@@ -54,7 +54,7 @@ export const MasterUpdateReward = () => {
 
     const getRanges = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:3033/range/get`, { headers: headers })
+            const { data } = await axios.get(`https://reciba-api.vercel.app//range/get`, { headers: headers })
             setRange(data.range)
         } catch (err) {
             console.log(err)
@@ -66,10 +66,10 @@ export const MasterUpdateReward = () => {
 
     const editReward = async () => {
         try {
-            const { data } = await axios.put(`http://localhost:3033/reward/update/${id}`, form, { headers: headers })
+            const { data } = await axios.put(`https://reciba-api.vercel.app//reward/update/${id}`, form, { headers: headers })
             if (data.reward) {
                 if (photo) {
-                    await axios.put(`http://localhost:3033/reward/uploadImage/${data.reward._id}`, photo,
+                    await axios.put(`https://reciba-api.vercel.app//reward/uploadImage/${data.reward._id}`, photo,
                     { headers: { 'Content-Type': 'multipart/form-data', 'Authorization': localStorage.getItem('token') } })
                 }
             }

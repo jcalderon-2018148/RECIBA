@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 import axios from 'axios'
 import { ModalAddRange } from '../../../components/ranges/ModalAddRange'
 
-const HOST = Object.freeze({ url: 'http://localhost:3033' })
+const HOST = Object.freeze({ url: 'https://reciba-api.vercel.app/' })
 
 export const RangesView = () => {
     const [ranges, setRanges] = useState()

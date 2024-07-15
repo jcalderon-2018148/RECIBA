@@ -19,7 +19,7 @@ export const RecyclerView = () => {
 
   const getRecycler = async () => {
     try {
-      const { data } = await axios(`http://localhost:3033/recycler/getOne/${id}`, { headers: headers })
+      const { data } = await axios(`https://reciba-api.vercel.app//recycler/getOne/${id}`, { headers: headers })
 
       if (data) {
         return setRecycler(data.recycler)
@@ -33,7 +33,7 @@ export const RecyclerView = () => {
 
   const getMaterials = async () => {
     try {
-      const { data } = await axios(`http://localhost:3033/material/getRecMaterials/${id}`, { headers: headers })
+      const { data } = await axios(`https://reciba-api.vercel.app//material/getRecMaterials/${id}`, { headers: headers })
 
       if (data) {
         return setMaterials(data.materials)
@@ -61,7 +61,7 @@ export const RecyclerView = () => {
               return (
                 <div id={index} className="carousel-item active">
                   <img 
-                    src={`http://localhost:3033/recycler/getImage/${p}`} 
+                    src={`https://reciba-api.vercel.app//recycler/getImage/${p}`} 
                     crossOrigin='anonymous' 
                     className="d-block" 
                     style={{ objectFit: 'cover', width: '100%', height: '60vh' }} />
