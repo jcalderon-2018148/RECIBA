@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 import axios from 'axios'
 import { CardBill } from '../../../components/bill/CardBill'
 
-const HOST = Object.freeze({ url: 'https://reciba-api.vercel.app/' })
+const HOST = Object.freeze({ url: 'https://reciba-api.vercel.app' })
 
 export const BillView = () => {
   const [bills, setBills] = useState()

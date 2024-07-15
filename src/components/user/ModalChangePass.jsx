@@ -40,7 +40,7 @@ export const ModalChangePass = ({ user }) => {
 
     const updatePass = async () => {
         try {
-            const { data } = await axios.put(`https://reciba-api.vercel.app//user/updatePassword`, form, { headers: headers })
+            const { data } = await axios.put(`https://reciba-api.vercel.app/user/updatePassword`, form, { headers: headers })
 
             if (data.message) 
                 return Swal.fire('Password updated successfully, please login again to complete the process', '', 'success')

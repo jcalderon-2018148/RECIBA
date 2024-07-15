@@ -17,7 +17,7 @@ export const CardReward = ({ name, desc, partner, range, cantPoints, photo, id, 
                     <div className="row g-0 align-items-center">
                         <div className="col-sm-5">
                             <img
-                                src={`https://reciba-api.vercel.app//reward/getImage/${photo}`}
+                                src={`https://reciba-api.vercel.app/reward/getImage/${photo}`}
                                 crossOrigin='anonymous'
                                 className="img-fluid rounded-5 shadow"
                                 style={{

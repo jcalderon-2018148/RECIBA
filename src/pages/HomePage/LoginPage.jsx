@@ -23,7 +23,7 @@ export const LoginPage = () => {
 
     const login = async (e) => {
         try {
-            const { data } = await axios.post('https://reciba-api.vercel.app//user/login', form)
+            const { data } = await axios.post('https://reciba-api.vercel.app/user/login', form)
 
             if (data.token) {
                 Swal.fire({

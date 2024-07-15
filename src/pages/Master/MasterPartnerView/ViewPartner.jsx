@@ -14,7 +14,7 @@ export const ViewPartner = () => {
 
     const getPartner = async () => {
         try {
-            const { data } = await axios(`https://reciba-api.vercel.app//partner/get`, { headers: headers })
+            const { data } = await axios(`https://reciba-api.vercel.app/partner/get`, { headers: headers })
             setPartner(data.partners)
         } catch (err) {
             console.log(err);
@@ -31,7 +31,7 @@ export const ViewPartner = () => {
                 showDenyButton: true,
             }).then(async (result) => {
                 if (result.isConfirmed) {
-                    const { data } = await axios.delete(`https://reciba-api.vercel.app//partner/delete/${id}`, { headers: headers })
+                    const { data } = await axios.delete(`https://reciba-api.vercel.app/partner/delete/${id}`, { headers: headers })
                         .catch((err) => {
                             Swal.fire(err.response.data.message, '', 'error')
                         })

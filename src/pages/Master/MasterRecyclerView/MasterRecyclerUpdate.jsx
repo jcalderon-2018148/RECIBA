@@ -28,11 +28,11 @@ export const MasterRecyclerUpdate = () => {
 
   const getRecycler = async () => {
     try {
-      const { data } = await axios.get(`https://reciba-api.vercel.app//recycler/getOne/${id}`, { headers: headers })
+      const { data } = await axios.get(`https://reciba-api.vercel.app/recycler/getOne/${id}`, { headers: headers })
       let dU = data
       if (dU.recycler) {
         setRecycler(dU.recycler)
-        const { data } = await axios.get(`https://reciba-api.vercel.app//user/get/${dU.recycler.user}`, { headers: headers });
+        const { data } = await axios.get(`https://reciba-api.vercel.app/user/get/${dU.recycler.user}`, { headers: headers });
         setUser(`${data.data[0].name} ${data.data[0].surname}`)
       }
 
@@ -53,11 +53,11 @@ export const MasterRecyclerUpdate = () => {
         email: document.getElementById('email').value
       }
 
-      const { data } = await axios.put(`https://reciba-api.vercel.app//recycler/set/${id}`, form, { headers: headers })
+      const { data } = await axios.put(`https://reciba-api.vercel.app/recycler/set/${id}`, form, { headers: headers })
 
       if (data.recycler) {
         if (photo)
-          await axios.put(`https://reciba-api.vercel.app//recycler/uploadImage/${data.recycler._id}`, photo, {
+          await axios.put(`https://reciba-api.vercel.app/recycler/uploadImage/${data.recycler._id}`, photo, {
             headers: { 'Content-type': 'multipart/form-data', 'Authorization': localStorage.getItem('token') }
           })
         Swal.fire({

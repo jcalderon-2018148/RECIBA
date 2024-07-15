@@ -23,10 +23,10 @@ export const RewardStats = () => {
     /*Metodo para obtener el partner y las rewards */
     const getByPartner = async () => {
         try {
-            const { data } = await axios(`https://reciba-api.vercel.app//partner/getByUser/${dataUser.sub}`, { headers: headers })
+            const { data } = await axios(`https://reciba-api.vercel.app/partner/getByUser/${dataUser.sub}`, { headers: headers })
             const partnerId = data.partner._id
             if (data) {
-                const { data } = await axios(`https://reciba-api.vercel.app//reward/getByPartner/${partnerId}`, { headers: headers })
+                const { data } = await axios(`https://reciba-api.vercel.app/reward/getByPartner/${partnerId}`, { headers: headers })
                 const rewardsArray = data.rewards
                 if (data) {
                     let filterRecycler = []

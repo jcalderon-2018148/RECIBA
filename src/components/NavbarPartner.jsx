@@ -6,7 +6,7 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 import { AuthContext } from '../index'
 
-const HOST = Object.freeze({ url: 'https://reciba-api.vercel.app/' })
+const HOST = Object.freeze({ url: 'https://reciba-api.vercel.app' })
 
 export const NavbarPartner = () => {
 

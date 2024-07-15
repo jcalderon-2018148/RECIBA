@@ -18,8 +18,8 @@ export const ViewReward = () => {
   const getRewards = async () => {
     try {
       const idUserPartner = dataUser.id
-      const findPartner = await axios(`https://reciba-api.vercel.app//partner/getByUser/${idUserPartner}`, {headers: headers})
-      const { data } = await axios.get(`https://reciba-api.vercel.app//reward/getByPartner/${findPartner?.data.partner._id}`, { headers: headers })
+      const findPartner = await axios(`https://reciba-api.vercel.app/partner/getByUser/${idUserPartner}`, {headers: headers})
+      const { data } = await axios.get(`https://reciba-api.vercel.app/reward/getByPartner/${findPartner?.data.partner._id}`, { headers: headers })
       console.log(data.rewards);
       if (data) {
         setRewards(data.rewards)
@@ -33,7 +33,7 @@ export const ViewReward = () => {
   /*Eliminar reward */
   const delRewats = async (id) => {
     try {
-      const { data } = await axios.delete(`https://reciba-api.vercel.app//reward/delete/${id}`, { headers: headers })
+      const { data } = await axios.delete(`https://reciba-api.vercel.app/reward/delete/${id}`, { headers: headers })
       getRewards()
       Swal.fire({
         title: 'Deleted',

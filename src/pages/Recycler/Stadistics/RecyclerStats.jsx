@@ -47,7 +47,7 @@ export const RecyclerStats = () => {
 
     const getBills = async () => {
         try {
-            const { data } = await axios(`https://reciba-api.vercel.app//bill/getRecycler`, { headers: headers })
+            const { data } = await axios(`https://reciba-api.vercel.app/bill/getRecycler`, { headers: headers })
 
             if (data) {
                 // CHART DE FACTURAS PAGADAS CON DINERO

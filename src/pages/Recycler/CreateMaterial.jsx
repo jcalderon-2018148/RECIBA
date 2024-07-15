@@ -39,8 +39,8 @@ export const CreateMaterial = () => {
     const addMaterial = async () => {
         try {
 
-            const userData = await axios(`https://reciba-api.vercel.app//user/getByUsername/${localUser.username}`, { headers: headers })
-            const recyclerData = await axios(`https://reciba-api.vercel.app//recycler/getByUser/${userData.data.data[0].id}`, { headers: headers })
+            const userData = await axios(`https://reciba-api.vercel.app/user/getByUsername/${localUser.username}`, { headers: headers })
+            const recyclerData = await axios(`https://reciba-api.vercel.app/recycler/getByUser/${userData.data.data[0].id}`, { headers: headers })
            
             const newMaterial = {
                 type: material.type,
@@ -52,11 +52,11 @@ export const CreateMaterial = () => {
                 recycle: recyclerData.data.recycler._id
             }
 
-            const {data} = await axios.post(`https://reciba-api.vercel.app//material/add`, newMaterial, {headers: headers})
+            const {data} = await axios.post(`https://reciba-api.vercel.app/material/add`, newMaterial, {headers: headers})
 
             if (data.material) {
                 await axios.put(
-                    `https://reciba-api.vercel.app//material/uploadImage/${data.material._id}`, 
+                    `https://reciba-api.vercel.app/material/uploadImage/${data.material._id}`, 
                     photo, 
                     {headers: {'Content-Type': 'multipart/form-data', 'Authorization': localStorage.getItem('token')}}
                 )

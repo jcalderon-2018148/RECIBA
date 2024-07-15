@@ -34,7 +34,7 @@ export const ViewBillMaterials = () => {
 
     const getBill = async () => {
         try {
-            const { data } = await axios(`https://reciba-api.vercel.app//bill/get/${id}`, { headers: headers })
+            const { data } = await axios(`https://reciba-api.vercel.app/bill/get/${id}`, { headers: headers })
             setBill(data.data)
         } catch (err) {
             Swal.fire(err.response.data.message, '', 'error');
@@ -73,7 +73,7 @@ export const ViewBillMaterials = () => {
 
                     if (!(bill.payMethod == 'ECOINS')) {
 
-                        const { data } = await axios.put(`https://reciba-api.vercel.app//bill/disableBill/${id}`, '', { headers: { 'Content-Type': 'multipart/form-data', 'Authorization': localStorage.getItem('token') } }).catch((err) => {
+                        const { data } = await axios.put(`https://reciba-api.vercel.app/bill/disableBill/${id}`, '', { headers: { 'Content-Type': 'multipart/form-data', 'Authorization': localStorage.getItem('token') } }).catch((err) => {
                             Swal.fire(err.response.data.message, '', 'error')
                         })
                         Swal.fire(`${data.message}`, '', 'success')
@@ -81,17 +81,17 @@ export const ViewBillMaterials = () => {
 
                     } else {
 
-                        const aBills = await axios(`https://reciba-api.vercel.app//bill/getByUser/${bill.user._id}`, { headers: headers })
+                        const aBills = await axios(`https://reciba-api.vercel.app/bill/getByUser/${bill.user._id}`, { headers: headers })
                         const allBills = aBills.data.data
 
                         const filterBills = []
 
                         console.log(allBills);
 
-                        const dataUser = await axios(`https://reciba-api.vercel.app//user/get/${bill.user._id}`, { headers: headers })
+                        const dataUser = await axios(`https://reciba-api.vercel.app/user/get/${bill.user._id}`, { headers: headers })
 
                         //Deshabilitar la factura
-                        const { data } = await axios.put(`https://reciba-api.vercel.app//bill/disableBill/${id}`, '', { headers: { 'Content-Type': 'multipart/form-data', 'Authorization': localStorage.getItem('token') } }).catch((err) => {
+                        const { data } = await axios.put(`https://reciba-api.vercel.app/bill/disableBill/${id}`, '', { headers: { 'Content-Type': 'multipart/form-data', 'Authorization': localStorage.getItem('token') } }).catch((err) => {
                             Swal.fire(err.response.data.message, '', 'error')
                         })
 
@@ -116,7 +116,7 @@ export const ViewBillMaterials = () => {
                                 }
 
                                 const streak = await axios.put(
-                                    `https://reciba-api.vercel.app//bill/addStreak/${data.data.user}`,
+                                    `https://reciba-api.vercel.app/bill/addStreak/${data.data.user}`,
                                     minusStreak,
                                     { headers: headers }
                                 )
@@ -133,7 +133,7 @@ export const ViewBillMaterials = () => {
                             exp: -(parseInt(data.data.points * 0.40))
                         }
 
-                        const updExpPts = await axios.put(`https://reciba-api.vercel.app//bill//expPts/${data.data.user}`, minusExpPts, { headers: headers })
+                        const updExpPts = await axios.put(`https://reciba-api.vercel.app/bill//expPts/${data.data.user}`, minusExpPts, { headers: headers })
 
                         navigate('/recycler/viewBills');
                         Swal.fire(`${data.message}`, '', 'success')

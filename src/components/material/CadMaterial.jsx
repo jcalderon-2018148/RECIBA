@@ -13,7 +13,7 @@ export const CadMaterial = ({ _id, type, price, unit, photo, recycle, butDel }) 
                 <div className="row g-0 align-items-center justify-content-center">
                     <div>
                         <img
-                            src={`https://reciba-api.vercel.app//material/getImage/${photo}`}
+                            src={`https://reciba-api.vercel.app/material/getImage/${photo}`}
                             crossOrigin='anonymous'
                             className="card-img-top rounded-4 img-fluid"
                             style={{
@@ -57,7 +57,7 @@ export const CadMaterial = ({ _id, type, price, unit, photo, recycle, butDel }) 
                 <div className="row g-0 align-items-center">
                     <div className="col-sm-5">
                         <img
-                            src={`https://reciba-api.vercel.app//material/getImage/${photo}`}
+                            src={`https://reciba-api.vercel.app/material/getImage/${photo}`}
                             crossOrigin='anonymous'
                             className="img-fluid rounded-start"
                             style={{

@@ -10,7 +10,7 @@ import { ModalDelAccount } from '../../components/user/ModalDelAccount'
 import { ModalEditUser } from '../../components/user/ModalEditUser'
 import { ModalChangePass } from '../../components/user/ModalChangePass'
 
-const HOST = Object.freeze({ url: 'https://reciba-api.vercel.app/' })
+const HOST = Object.freeze({ url: 'https://reciba-api.vercel.app' })
 
 export const Settings = () => {
     const [user, setUser] = useState()

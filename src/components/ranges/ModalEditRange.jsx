@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import Swal from 'sweetalert2'
 
-const HOST = Object.freeze({ url: 'https://reciba-api.vercel.app/' })
+const HOST = Object.freeze({ url: 'https://reciba-api.vercel.app' })
 
 export const ModalEditRange = ({ id, name, initExp, limitExp, photo }) => {
     const [form, setForm] = useState({
@@ -82,7 +82,7 @@ export const ModalEditRange = ({ id, name, initExp, limitExp, photo }) => {
 
                             <div className='d-flex justify-content-center'>
                                 <img
-                                    src={photo ?  `https://reciba-api.vercel.app//range/getImage/${photo}` : uPhoto}
+                                    src={photo ?  `https://reciba-api.vercel.app/range/getImage/${photo}` : uPhoto}
                                     crossOrigin='anonymous'
                                     className="img-fluid rounded-circle shadow"
                                     style={{

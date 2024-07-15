@@ -21,7 +21,7 @@ export const PartnerView = () => {
 
   const getPartner = async () => {
     try {
-      const { data } = await axios(`https://reciba-api.vercel.app//partner/get/${id}`, { headers: headers })
+      const { data } = await axios(`https://reciba-api.vercel.app/partner/get/${id}`, { headers: headers })
 
       if (data) return setPartner(data.partner)
 
@@ -33,7 +33,7 @@ export const PartnerView = () => {
 
   const getRewards = async () => {
     try {
-      const { data } = await axios(`https://reciba-api.vercel.app//reward/getByPartner/${id}`, { headers: headers })
+      const { data } = await axios(`https://reciba-api.vercel.app/reward/getByPartner/${id}`, { headers: headers })
       if (data) return setRewards(data.rewards)
 
     } catch (err) {
@@ -51,7 +51,7 @@ export const PartnerView = () => {
             showDenyButton: true,
         }).then(async (result) => {
             if (result.isConfirmed) {
-                const { data } = await axios.delete(`https://reciba-api.vercel.app//reward/delete/${id}`, { headers: headers })
+                const { data } = await axios.delete(`https://reciba-api.vercel.app/reward/delete/${id}`, { headers: headers })
                     .catch((err) => {
                         Swal.fire(err.response.data.message, '', 'error')
                     })
@@ -79,7 +79,7 @@ export const PartnerView = () => {
         <div className='row align-items-center shadow rounded-5'>
           <div className='col-sm-6 p-0'>
             <img
-              src={`https://reciba-api.vercel.app//partner/getImage/${partner?.photo}`}
+              src={`https://reciba-api.vercel.app/partner/getImage/${partner?.photo}`}
               crossOrigin='anonymous'
               className='img-fluid rounded-5 shadow-lg'
               style={{ objectFit: 'cover', width: '100%', height: '50vh' }}

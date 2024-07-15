@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Swal from 'sweetalert2'
 import { CardReward } from '../../../components/rewards/CardReward'
 
-const HOST = Object.freeze({ url: 'https://reciba-api.vercel.app/' })
+const HOST = Object.freeze({ url: 'https://reciba-api.vercel.app' })
 
 export const RewardView = () => {
     const [rewards, setRewards] = useState()

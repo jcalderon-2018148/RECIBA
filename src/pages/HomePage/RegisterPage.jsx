@@ -61,10 +61,10 @@ export const RegisterPage = () => {
 
     const add = async (e) => {
         try {
-            const { data } = await axios.post('https://reciba-api.vercel.app//user/register', form)
+            const { data } = await axios.post('https://reciba-api.vercel.app/user/register', form)
 
             if (data.user) {
-                if (photo) await axios.put(`https://reciba-api.vercel.app//user/registerImg/${data.user._id}`, photo, {
+                if (photo) await axios.put(`https://reciba-api.vercel.app/user/registerImg/${data.user._id}`, photo, {
                     headers: { 'Content-Type': 'multipart/form-data' }
                 })
 

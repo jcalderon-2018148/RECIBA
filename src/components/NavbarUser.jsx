@@ -6,7 +6,7 @@ import '../css/Dashboard.css'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 
-const HOST = Object.freeze({ url: 'https://reciba-api.vercel.app/' })
+const HOST = Object.freeze({ url: 'https://reciba-api.vercel.app' })
 
 export const NavbarUser = () => {
 

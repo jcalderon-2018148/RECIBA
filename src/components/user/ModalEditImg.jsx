@@ -41,7 +41,7 @@ export const ModalEditImg = ({ user }) => {
         try {
             if (!isUp) return Swal.fire('You have no selected an image', '', 'warning')
 
-            const { data } = await axios.put(`https://reciba-api.vercel.app//user/uploadImg/${user.id}`, photo, { headers: headers })
+            const { data } = await axios.put(`https://reciba-api.vercel.app/user/uploadImg/${user.id}`, photo, { headers: headers })
 
             if (data) {
                 Swal.fire({
@@ -82,7 +82,7 @@ export const ModalEditImg = ({ user }) => {
                         <div className="modal-body">
                             <div className='d-flex justify-content-center'>
                                 <img
-                                    src={uPhoto ? uPhoto : `https://reciba-api.vercel.app//user/getImg/${user?.photo}`}
+                                    src={uPhoto ? uPhoto : `https://reciba-api.vercel.app/user/getImg/${user?.photo}`}
                                     crossOrigin='anonymous'
                                     className="img-fluid rounded-circle shadow"
                                     style={{

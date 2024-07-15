@@ -24,7 +24,7 @@ export const RangeCard = ({ id, name, initExp, limitExp, photo }) => {
                 showDenyButton: true,
             }).then(async (result) => {
                 if (result.isConfirmed) {
-                    const { data } = await axios.delete(`https://reciba-api.vercel.app//range/delete/${id}`, { headers: headers })
+                    const { data } = await axios.delete(`https://reciba-api.vercel.app/range/delete/${id}`, { headers: headers })
                     .catch((err) => {
                         Swal.fire(err.response.data.message, '', 'error')
                     })
@@ -46,7 +46,7 @@ export const RangeCard = ({ id, name, initExp, limitExp, photo }) => {
                 <div className="h-100 transitionY shadow-lg rounded-4">
 
                     <img
-                        src={photo ? `https://reciba-api.vercel.app//range/getImage/${photo}` : photoError}
+                        src={photo ? `https://reciba-api.vercel.app/range/getImage/${photo}` : photoError}
                         crossOrigin='anonymous'
                         className="img-fluid rounded-5 shadow rounded-top-4"
                         style={{

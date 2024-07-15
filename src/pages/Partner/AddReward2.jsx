@@ -45,7 +45,7 @@ export const AddReward2 = () => {
  /*metodo para obtener partner y cambiarlo en el form */
   const getPartner = async () => {
     try {
-      const { data } = await axios.get(`https://reciba-api.vercel.app//partner/getByUser/${dataUser.sub}`, { headers: headers })
+      const { data } = await axios.get(`https://reciba-api.vercel.app/partner/getByUser/${dataUser.sub}`, { headers: headers })
       if (data) {
         setForm({
           ...form,
@@ -61,7 +61,7 @@ export const AddReward2 = () => {
   /*metodo para obtener rango */
   const getRanges = async () => {
     try {
-      const { data } = await axios.get(`https://reciba-api.vercel.app//range/get`, { headers: headers })
+      const { data } = await axios.get(`https://reciba-api.vercel.app/range/get`, { headers: headers })
       setRange([])
       for (let i = 0; i < data.range?.length; i++) {
         if (data.range[i].name != 'ADMIN')
@@ -75,10 +75,10 @@ export const AddReward2 = () => {
   /*Metodo para agregar reward */
   const addReward = async () => {
     try {
-      const { data } = await axios.post('https://reciba-api.vercel.app//reward/add', form, { headers: headers })
+      const { data } = await axios.post('https://reciba-api.vercel.app/reward/add', form, { headers: headers })
       if (data.reward) {
         if (photo) {
-          await axios.put(`https://reciba-api.vercel.app//reward/uploadImage/${data.reward._id}`, photo,
+          await axios.put(`https://reciba-api.vercel.app/reward/uploadImage/${data.reward._id}`, photo,
             { headers: { 'Content-Type': 'multipart/form-data', 'Authorization': localStorage.getItem('token') } })
         }
         Swal.fire({

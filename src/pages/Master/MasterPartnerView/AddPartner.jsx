@@ -48,7 +48,7 @@ export const AddPartner = () => {
 
     const getUsers = async () => {
         try {
-            const { data } = await axios.get('https://reciba-api.vercel.app//user/get', { headers: headers });
+            const { data } = await axios.get('https://reciba-api.vercel.app/user/get', { headers: headers });
             if (data) {
                 setUser([])
                 for (let i = 0; i < data.data?.length; i++) {
@@ -67,7 +67,7 @@ export const AddPartner = () => {
 
     const add = async (e) => {
         try {
-            const { data } = await axios.post('https://reciba-api.vercel.app//partner/add', form, { headers: headers })
+            const { data } = await axios.post('https://reciba-api.vercel.app/partner/add', form, { headers: headers })
             if (data.partner) {
                 if (!photo) {
                     Swal.fire({
@@ -79,7 +79,7 @@ export const AddPartner = () => {
                     })
                     navigate('/master/partnerView')
                 }
-                if (photo) await axios.put(`https://reciba-api.vercel.app//partner/uploadImage/${data.partner._id}`, photo, {
+                if (photo) await axios.put(`https://reciba-api.vercel.app/partner/uploadImage/${data.partner._id}`, photo, {
                     headers: { 'Content-Type': 'multipart/form-data', 'Authorization': localStorage.getItem('token') }
                 })
 

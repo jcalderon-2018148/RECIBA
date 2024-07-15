@@ -14,7 +14,7 @@ export const CardRecycler = ({ name, direction, id, email, phone, startHour, end
                 <div className="row g-0 align-items-center">
                     <div className="col-sm-5">
                         <img
-                            src={`https://reciba-api.vercel.app//recycler/getImage/${photos?.[0]}`}
+                            src={`https://reciba-api.vercel.app/recycler/getImage/${photos?.[0]}`}
                             crossOrigin='anonymous'
                             className="img-fluid rounded-5 shadow"
                             style={{
